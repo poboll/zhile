@@ -67,3 +67,8 @@ Vuex
 - [Bootstrap](https://v5.getbootstrap.com) 
 - [Tailwind CSS](https://tailwindcss.com)
 - [Foundation](https://get.foundation/develop/getting-started.html)
+
+开发流程：
+将UI划分出组件的层级
+创建应用的静态版本
+[原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
