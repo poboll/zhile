@@ -1,4 +1,4 @@
-## 仿知乎专栏
+## 知了-高仿知乎专栏
 > 使用 Typescript + Vue3 开发
 
 完美的Vue实践项目是怎么样的？
@@ -72,3 +72,36 @@ Vuex
 将UI划分出组件的层级
 创建应用的静态版本
 [原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
+
+CloimnList组件使用Bootstrap美化
+1. 引入 Bootstrap
+```
+// bootstrap打包后提供的最小样式文件、方便使用其一系列class
+import 'bootstrap/dist/css/bootstrap.min.css'
+```
+
+2. 创建 Row 和 Col
+使用 Bootstrap 的 Row 和 Col 组件来创建布局。Row 用于包裹 Col，Col(12)用于定义网格系统中的列。
+
+查阅文档 [Grid](https://getbootstrap.com/docs/5.3/layout/grid/)
+```
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+  </div>
+</div>
+```
+
+3. Card
+[查阅文档](https://getbootstrap.com/docs/5.3/components/card/)
+```
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+```
