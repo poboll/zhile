@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <global-header :user="currentUser"></global-header>
     <column-list :list="list"></column-list>
   </div>
 </template>
@@ -9,7 +10,13 @@ import { defineComponent } from 'vue'
 // bootstrap打包后提供的最小样式文件、方便使用其一系列class
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList, { ColumnProps } from './components/ColumnList.vue'
-
+import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
+const currentUser: UserProps = {
+  // 测试
+  // isLogin: false
+  isLogin: true,
+  name: 'mdo'
+}
 const testData: ColumnProps[] = [
   {
     id: 1,
@@ -40,11 +47,13 @@ const testData: ColumnProps[] = [
 export default defineComponent({
   name: 'App',
   components: {
-    ColumnList
+    ColumnList,
+    GlobalHeader
   },
   setup () {
     return {
-      list: testData
+      list: testData,
+      currentUser
     }
   }
 })

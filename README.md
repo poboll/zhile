@@ -105,3 +105,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
   </div>
 </div>
 ```
+
+4. Global Header
+两个状态：登录前 & 后
+[原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
+[组件描述](https://carbon.now.sh/WSs1tRbX6fgdNJrhkGyi)
+使用[Navbar](https://getbootstrap.com/docs/5.3/components/navbar/)
