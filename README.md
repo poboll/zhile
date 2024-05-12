@@ -111,3 +111,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 [原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
 [组件描述](https://carbon.now.sh/WSs1tRbX6fgdNJrhkGyi)
 使用[Navbar](https://getbootstrap.com/docs/5.3/components/navbar/)
+
+5. 高可用的下拉菜单组件
+点击按钮
+
+下拉菜单
+
+[查阅文档](https://getbootstrap.com/docs/5.3/components/dropdowns/)
