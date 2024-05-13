@@ -118,3 +118,5 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 下拉菜单
 
 [查阅文档](https://getbootstrap.com/docs/5.3/components/dropdowns/)
+
+使用dropdownitem组件：状态
