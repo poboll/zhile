@@ -120,3 +120,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 [查阅文档](https://getbootstrap.com/docs/5.3/components/dropdowns/)
 
 使用dropdownitem组件：状态
+
+点击外部区域自动隐藏
+1. 在mounted时候添加click事件，在unmounted的时候将事件删除
+2. 拿到Dropdown的DOM元素从而判断，点击的内容是否被这个元素包含
