@@ -124,3 +124,41 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 点击外部区域自动隐藏
 1. 在mounted时候添加click事件，在unmounted的时候将事件删除
 2. 拿到Dropdown的DOM元素从而判断，点击的内容是否被这个元素包含
+
+### 表单
+[原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
+
+整个From会触发它下面每一项有验证规则的Item的验证流程，并根据问题显示出来。
+
+某个事件可以触发：Blur
+
+每一个可以有多个验证规则，称之为Rule
+- 不为空
+- 长度
+- 大小
+- 特殊格式
+
+验证未通过
+- 出现具体的警告
+
+采用[Bootstrap表单案例](https://getbootstrap.com/docs/5.3/forms/overview/)
+form-label：文本
+form-text：（可选）帮助文本
+```
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
