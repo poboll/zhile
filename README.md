@@ -162,3 +162,22 @@ form-text：（可选）帮助文本
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
+
+支持v-model:
+- 自定义组件
+- 更新值时发送一个事件`context.emit('update:modelValue', targetValue)`
+```
+// vue2 自定义组件
+<my-component v-model='val' />
+<my-component :value='val' @input='val = arguments[0]' />
+
+// 非同寻常的表单元素
+<input type="checkbox" :checked='val' @change=''>
+
+// vue3 compile 以后的结果
+<my-component v-model='foo' />
+h(Comp, {
+  modelValue: foo,
+  'onUpdate:modelValue': value => (foo = value)
+})
+```
