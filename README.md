@@ -181,3 +181,8 @@ h(Comp, {
   'onUpdate:modelValue': value => (foo = value)
 })
 ```
+
+输入框支持默认属性
+
+[非Prop的Attribute](https://v2.cn.vuejs.org/v2/guide/components-props.html#%E9%9D%9E-Prop-%E7%9A%84-Attribute)
+不希望继承：inheritAttrs: false

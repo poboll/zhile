@@ -5,16 +5,21 @@
     <form>
       <div class="mb-3">
         <label class="form-label">邮箱地址</label>
-        <validate-input :rules="emailRules" v-model="emailVal"></validate-input>
+        <validate-input
+          :rules="emailRules" v-model="emailVal"
+          placeholder="请输入邮箱地址"
+          type="text"
+        />
         {{emailVal}}
       </div>
       <div class="from-text" v-if="emailRef.error">{{ emailRef.message }}</div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">密码</label>
-        <input
+        <validate-input
           type="password"
-          class="form-control"
-          id="exampleInputPassword1"
+          placeholder="请输入密码"
+          :rules="passwordRules"
+          v-model="passwordVal"
         />
       </div>
       <div class="mb-3 form-check">
@@ -97,13 +102,19 @@ export default defineComponent({
         emailRef.message = 'should be valid message'
       }
     }
+    const passwordRules: RulesProp = [
+      { type: 'required', message: '密码不能为空' }
+    ]
+    const passwordVal = ref('')
     return {
       list: testData,
       currentUser,
       emailRef,
       validateEmail,
       emailRules,
-      emailVal
+      emailVal,
+      passwordRules,
+      passwordVal
     }
   }
 })
