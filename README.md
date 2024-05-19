@@ -186,3 +186,19 @@ h(Comp, {
 
 [非Prop的Attribute](https://v2.cn.vuejs.org/v2/guide/components-props.html#%E9%9D%9E-Prop-%E7%9A%84-Attribute)
 不希望继承：inheritAttrs: false
+
+Validate组件需求分析
+
+Form：语义化ValidateInput组件
+[原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
+某个事件可以触发
+- Blur
+
+每一个可以有多个验证规则，称之为Rule
+- 不为空
+- 长度
+- 大小
+- 特殊格式
+
+验证未通过
+- 出现具体的警告
