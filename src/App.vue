@@ -2,7 +2,7 @@
   <div class="container">
     <global-header :user="currentUser"></global-header>
     <column-list :list="list"></column-list>
-    <form>
+    <validate-form @form-submit="onFormSubmit">
       <div class="mb-3">
         <label class="form-label">邮箱地址</label>
         <validate-input
@@ -26,8 +26,11 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button type="submit" class="btn btn-primary">登录</button>
-    </form>
+      <!-- <template v-slot:submit> -->
+      <template #submit>
+        <span class="btn btn-danger">Submit</span>
+      </template>
+    </validate-form>
   </div>
 </template>
 
@@ -38,6 +41,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList, { ColumnProps } from './components/ColumnList.vue'
 import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
 import ValidateInput, { RulesProp } from './components/ValidateInput.vue'
+import ValidateForm from './components/ValidateForm.vue'
 const currentUser: UserProps = {
   // 测试
   // isLogin: false
@@ -80,7 +84,8 @@ export default defineComponent({
   components: {
     ColumnList,
     GlobalHeader,
-    ValidateInput
+    ValidateInput,
+    ValidateForm
   },
   setup () {
     const emailVal = ref('mdo')
@@ -102,10 +107,13 @@ export default defineComponent({
         emailRef.message = 'should be valid message'
       }
     }
+    const passwordVal = ref('')
     const passwordRules: RulesProp = [
       { type: 'required', message: '密码不能为空' }
     ]
-    const passwordVal = ref('')
+    const onFormSubmit = (result: boolean) => {
+      console.log('1234', result)
+    }
     return {
       list: testData,
       currentUser,
@@ -114,7 +122,8 @@ export default defineComponent({
       emailRules,
       emailVal,
       passwordRules,
-      passwordVal
+      passwordVal,
+      onFormSubmit
     }
   }
 })

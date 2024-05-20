@@ -202,3 +202,5 @@ Form：语义化ValidateInput组件
 
 验证未通过
 - 出现具体的警告
+
+[具名插槽](https://v2.cn.vuejs.org/v2/guide/components-slots.html#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD)
