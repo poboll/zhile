@@ -21,6 +21,11 @@ export default defineComponent({
     return {
       submitForm
     }
+  },
+  mounted() {
+    this.$on('item-created', ()) => {
+      
+    }
   }
 })
 </script>

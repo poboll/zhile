@@ -204,3 +204,11 @@ Form：语义化ValidateInput组件
 - 出现具体的警告
 
 [具名插槽](https://v2.cn.vuejs.org/v2/guide/components-slots.html#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD)
+
+[处理边界情况-访问子组件实例或子元素](https://v2.cn.vuejs.org/v2/guide/components-edge-cases.html#%E8%AE%BF%E9%97%AE%E5%AD%90%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E6%88%96%E5%AD%90%E5%85%83%E7%B4%A0)
+
+[程序化的事件侦听器](https://v2.cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8)
+通过 `$on(eventName, eventHandler)` 侦听一个事件
+通过 `$once(eventName, eventHandler)` 一次性侦听一个事件
+通过 `$off(eventName, eventHandler)` 停止侦听一个事件
+
