@@ -10,21 +10,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-
+import { defineComponent, onUnmounted } from 'vue'
+import mitt from 'mitt'
+export const emitter = mitt() // 需要给监听器使用
 export default defineComponent({
   emits: ['form-submit'],
   setup (props, context) {
     const submitForm = () => {
       context.emit('form-submit', true)
     }
+    const callback = (test: unknown) => {
+      if (typeof test === 'string') {
+        console.log(test as string)
+      }
+    }
+    emitter.on('form-item-created', callback)
+    onUnmounted(() => {
+      emitter.off('form-item-created', callback) // 需要给监听器使用
+    })
     return {
       submitForm
-    }
-  },
-  mounted() {
-    this.$on('item-created', ()) => {
-      
     }
   }
 })
