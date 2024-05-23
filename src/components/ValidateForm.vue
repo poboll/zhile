@@ -12,21 +12,26 @@
 <script lang="ts">
 import { defineComponent, onUnmounted } from 'vue'
 import mitt from 'mitt'
-export const emitter = mitt() // 需要给监听器使用
+type ValidateFunc = () => boolean
+type Events = {
+  'form-item-created': ValidateFunc
+}
+export const emitter = mitt<Events>() // 需要给监听器使用
 export default defineComponent({
   emits: ['form-submit'],
   setup (props, context) {
+    let funcArr: ValidateFunc[] = []
     const submitForm = () => {
-      context.emit('form-submit', true)
+      const result = funcArr.map(func => func()).every(result => result)
+      context.emit('form-submit', result)
     }
-    const callback = (test: unknown) => {
-      if (typeof test === 'string') {
-        console.log(test as string)
-      }
+    const callback = (func: ValidateFunc) => {
+      funcArr.push(func)
     }
     emitter.on('form-item-created', callback)
     onUnmounted(() => {
       emitter.off('form-item-created', callback) // 需要给监听器使用
+      funcArr = []
     })
     return {
       submitForm
