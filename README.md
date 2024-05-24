@@ -212,3 +212,22 @@ Form：语义化ValidateInput组件
 通过 `$once(eventName, eventHandler)` 一次性侦听一个事件
 通过 `$off(eventName, eventHandler)` 停止侦听一个事件
 
+### SPA(Single Page Application)应用
+[History API](https://developer.mozilla.org/zh-CN/docs/Web/API/History)接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。
+
+介绍：
+一种WEB应用程序或网站
+
+在和用户交互的时候当用户不会跳转到其他的页面
+
+由JS实现URL变换和动态变换HTML的内容
+
+
+优点:
+速度快，第一次下载完成静态文件，跳转不需要再次下载
+
+体验好，整个交互趋手无缝，更倾向于原生应用
+
+为前后端分离提供了实践场所
+
+VueJs官方路由管理器[Vue Router](https://router.vuejs.org/zh/)
