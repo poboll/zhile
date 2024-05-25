@@ -32,6 +32,15 @@
         <span class="btn btn-danger">Submit</span>
       </template>
     </validate-form>
+    <footer class="text-center py-4 text-secondary bg-light mt-6">
+      <small>
+        <ul class="list-inline-item">© 2024 知了专栏</ul>
+        <ul class="list-inline-item">课程</ul>
+        <ul class="list-inline-item">文档</ul>
+        <ul class="list-inline-item">联系</ul>
+        <ul class="list-inline-item">更多</ul>
+      </small>
+    </footer>
   </div>
 </template>
 
