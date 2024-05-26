@@ -231,3 +231,7 @@ Form：语义化ValidateInput组件
 为前后端分离提供了实践场所
 
 VueJs官方路由管理器[Vue Router](https://router.vuejs.org/zh/)
+
+路由需求：需要URL_id。[URL结构](https://nodejs.org/api/url.html#url_the_whatwg_url_api)
+
+配置路由main.ts
