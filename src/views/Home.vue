@@ -51,7 +51,7 @@ const currentUser: UserProps = {
 }
 
 export default defineComponent({
-  name: 'Home',
+  name: 'HomeView',
   components: {
     ColumnList
   },

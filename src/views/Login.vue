@@ -26,56 +26,59 @@
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
       <template #submit>
-        <span class="btn">Submit</span>
+        <span class="btn btn-primary">Submit</span>
       </template>
     </validate-form>
+    <br>
   </div>
 </template>
 
 <script lang="ts">
-/* eslint-disable */
-import { defineComponent, reactive, ref } from 'vue';
-import ValidateInput, { RulesProp } from '../components/ValidateInput.vue';
-import ValidateForm from '../components/ValidateForm.vue';
+import { defineComponent, reactive, ref } from 'vue'
+import { useRouter } from 'vue-router' // 定义路由行为
+import ValidateInput, { RulesProp } from '../components/ValidateInput.vue'
+import ValidateForm from '../components/ValidateForm.vue'
 
-const emailReg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const emailReg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
 export default defineComponent({
-  name: 'Login',
+  name: 'LoginView',
   components: {
     ValidateInput,
     ValidateForm
   },
-  setup() {
-    const inputRef = ref<any>('');
-    const emailVal = ref('i@caiths.com');
+  setup () {
+    const inputRef = ref<any>('')
+    const emailVal = ref('i@caiths.com')
+    const router = useRouter()
     const emailRules: RulesProp = [
       { type: 'required', message: '电子邮箱地址不能为空' },
       { type: 'email', message: '请输入正确的电子邮箱格式' }
-    ];
+    ]
     const emailRef = reactive({
       val: '',
       error: false,
       message: ''
-    });
+    })
     const validateEmail = () => {
       if (emailRef.val.trim() === '') {
-        emailRef.error = true;
-        emailRef.message = 'can not be empty';
+        emailRef.error = true
+        emailRef.message = 'can not be empty'
       } else if (!emailReg.test(emailRef.val)) {
-        emailRef.error = true;
-        emailRef.message = 'should be valid message';
+        emailRef.error = true
+        emailRef.message = 'should be valid message'
       }
-    };
-    const passwordVal = ref('123');
+    }
+    const passwordVal = ref('123')
     const passwordRules: RulesProp = [
       { type: 'required', message: '密码不能为空' }
-    ];
+    ]
     const onFormSubmit = (result: boolean) => {
-      console.log('result', inputRef.value.validateInput());
-      console.log('1234', result);
-      console.log('result', result);
-    };
+      console.log('result', inputRef.value.validateInput())
+      if (result) {
+        router.push({ name: 'column', params: { id: 1 } })
+      }
+    }
     return {
       emailRef,
       validateEmail,
@@ -85,9 +88,9 @@ export default defineComponent({
       passwordVal,
       onFormSubmit,
       inputRef
-    };
+    }
   }
-});
+})
 </script>
 
 <style scoped>

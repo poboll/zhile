@@ -208,14 +208,19 @@ Form：语义化ValidateInput组件
 [处理边界情况-访问子组件实例或子元素](https://v2.cn.vuejs.org/v2/guide/components-edge-cases.html#%E8%AE%BF%E9%97%AE%E5%AD%90%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E6%88%96%E5%AD%90%E5%85%83%E7%B4%A0)
 
 [程序化的事件侦听器](https://v2.cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8)
+
 通过 `$on(eventName, eventHandler)` 侦听一个事件
+
 通过 `$once(eventName, eventHandler)` 一次性侦听一个事件
+
 通过 `$off(eventName, eventHandler)` 停止侦听一个事件
 
 ### SPA(Single Page Application)应用
+
 [History API](https://developer.mozilla.org/zh-CN/docs/Web/API/History)接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。
 
 介绍：
+
 一种WEB应用程序或网站
 
 在和用户交互的时候当用户不会跳转到其他的页面
@@ -224,6 +229,7 @@ Form：语义化ValidateInput组件
 
 
 优点:
+
 速度快，第一次下载完成静态文件，跳转不需要再次下载
 
 体验好，整个交互趋手无缝，更倾向于原生应用
@@ -233,5 +239,7 @@ Form：语义化ValidateInput组件
 VueJs官方路由管理器[Vue Router](https://router.vuejs.org/zh/)
 
 路由需求：需要URL_id。[URL结构](https://nodejs.org/api/url.html#url_the_whatwg_url_api)
+https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash
 
-配置路由main.ts
+配置路由main.ts、动态路径绑定：以冒号开头
+http://localhost:8080/column/12?search=123#foo
