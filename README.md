@@ -243,3 +243,5 @@ https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash
 
 配置路由main.ts、动态路径绑定：以冒号开头
 http://localhost:8080/column/12?search=123#foo
+
+一对多：添加columnDetail页面
