@@ -245,3 +245,16 @@ https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash
 http://localhost:8080/column/12?search=123#foo
 
 一对多：添加columnDetail页面
+
+
+### 状态管理工具
+全局对象的弊端：
+
+- 数据不是响应式的
+- 数据修改无法追踪
+- 不符合组件开发的原则
+
+状态管理工具的基本原则：
+
+- 一个类似 object 的全局数据结构一称之为 store
+- 只能调用一些特殊的方法来实现数据修改
