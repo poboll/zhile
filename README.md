@@ -247,7 +247,7 @@ http://localhost:8080/column/12?search=123#foo
 一对多：添加columnDetail页面
 
 
-### 状态管理工具
+### 状态管理工具：[Vuex](https://vuex.vuejs.org/zh/)
 全局对象的弊端：
 
 - 数据不是响应式的
@@ -258,3 +258,11 @@ http://localhost:8080/column/12?search=123#foo
 
 - 一个类似 object 的全局数据结构一称之为 store
 - 只能调用一些特殊的方法来实现数据修改
+
+Vuex的核心是Store
+
+store包含应用中大多数状态（State）
+
+特点：
+- 状态存储是响应式的
+- 不能直接改变store中的状态，唯一途径就是显示地提交（commit）mutation
