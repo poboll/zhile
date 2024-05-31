@@ -10,45 +10,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import ColumnList, { ColumnProps } from '../components/ColumnList.vue'
-
-const testData: ColumnProps[] = [
-  {
-    id: 1,
-    title: 'test1的专栏',
-    description: '这是test1专栏，有一段非常有意思的简介，可以更新一下欧',
-    avatar: 'http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg'
-  },
-  {
-    id: 2,
-    title: 'test2的专栏',
-    description: '这是test2专栏，有一段非常有意思的简介，可以更新一下欧',
-    avatar: 'http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg'
-  },
-  {
-    id: 3,
-    title: 'test3的专栏',
-    description: '这是test3专栏，有一段非常有意思的简介，可以更新一下欧'
-    // avatar: 'http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg'
-  },
-  {
-    id: 4,
-    title: 'test4的专栏',
-    description: '这是test4专栏，有一段非常有意思的简介，可以更新一下欧',
-    avatar: 'http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg'
-  }
-]
-
-interface UserProps {
-  isLogin: boolean;
-  name: string;
-}
-
-const currentUser: UserProps = {
-  isLogin: true,
-  name: 'mdo'
-}
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
+import { GlobalDataProps } from '../store'
+import ColumnList from '../components/ColumnList.vue'
 
 export default defineComponent({
   name: 'HomeView',
@@ -56,15 +21,10 @@ export default defineComponent({
     ColumnList
   },
   setup () {
-    const startWriting = () => {
-      // Logic to start writing an article
-      console.log('Start writing button clicked')
-    }
-
+    const store = useStore<GlobalDataProps>()
+    const list = computed(() => store.state.columns)
     return {
-      list: testData,
-      currentUser,
-      startWriting
+      list
     }
   }
 })
