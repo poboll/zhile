@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>{{biggerColumnLen}}</h2>
     <img src="../../src/assets/img.png" alt="Banner Image" class="banner-image"/>
     <br>
     <button @click="startWriting" class="btn btn-primary">开始写文章</button>
@@ -23,8 +24,10 @@ export default defineComponent({
   setup () {
     const store = useStore<GlobalDataProps>()
     const list = computed(() => store.state.columns)
+    const biggerColumnLen = computed(() => store.getters.biggerColumnsLen)
     return {
-      list
+      list,
+      biggerColumnLen
     }
   }
 })

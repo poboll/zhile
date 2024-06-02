@@ -13,9 +13,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script lang="ts">
+import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router' // 获取路由信息
+import { useStore } from 'vuex'
+import { GlobalDataProps } from '../store'
 import { testData, testPosts } from '../testData'
 import PostList from '../components/PostList.vue'
 export default defineComponent({
@@ -24,9 +26,10 @@ export default defineComponent({
   },
   setup () {
     const route = useRoute()
+    const store = useStore<GlobalDataProps>()
     const currentId = +route.params.id
-    const column = testData.find(c => c.id === currentId)
-    const list = testPosts.filter(post => post.columnId === currentId)
+    const column = computed(() => store.getters.getColumnById(currentId) || {})
+    const list = computed(() => store.getters.getPostsByCid(currentId) || {})
     return {
       column,
       list
