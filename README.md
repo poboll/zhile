@@ -266,3 +266,6 @@ store包含应用中大多数状态（State）
 特点：
 - 状态存储是响应式的
 - 不能直接改变store中的状态，唯一途径就是显示地提交（commit）mutation
+
+### 添加新建文章页面
+[原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
