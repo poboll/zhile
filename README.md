@@ -269,3 +269,5 @@ store包含应用中大多数状态（State）
 
 ### 添加新建文章页面
 [原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
+
+### 导航守卫|Vue Router
