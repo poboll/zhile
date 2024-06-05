@@ -271,3 +271,17 @@ store包含应用中大多数状态（State）
 [原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
 
 ### 导航守卫|Vue Router
+```vue
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'login' && !store.state.user.isLogin) {
+    next({ name: 'login' })
+  } else {
+    next()
+  }
+})
+```
+
+### 路由守卫-使用元信息完成权限管理
+[路由元信息](router.vuejs.org/zh/guide/advanced/meta.html)
+
+定义路由的时候可以配置`meta`字段
