@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, reactive, ref, Ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router' // 定义路由行为
 import ValidateInput, { RulesProp } from '../components/ValidateInput.vue'
@@ -49,7 +49,7 @@ export default defineComponent({
     ValidateForm
   },
   setup () {
-    const inputRef = ref<any>('')
+    const inputRef: Ref<HTMLInputElement | null> = ref(null)
     const emailVal = ref('i@caiths.com')
     const router = useRouter()
     const store = useStore()
