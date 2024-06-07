@@ -18,7 +18,6 @@ import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router' // 获取路由信息
 import { useStore } from 'vuex'
 import { GlobalDataProps } from '../store'
-import { testData, testPosts } from '../testData'
 import PostList from '../components/PostList.vue'
 export default defineComponent({
   components: {
