@@ -21,7 +21,7 @@ export interface ColumnProps {
     avatar?: string;
     description: string;
 }
-declare function require(moduleName: string): any;
+declare function require(moduleName: string): string;
 export default defineComponent({
   name: 'ColumnList',
   props: {
