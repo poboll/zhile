@@ -125,7 +125,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 1. 在mounted时候添加click事件，在unmounted的时候将事件删除
 2. 拿到Dropdown的DOM元素从而判断，点击的内容是否被这个元素包含
 
-### 表单
+### 前端设计
+#### 表单
 [原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
 
 整个From会触发它下面每一项有验证规则的Item的验证流程，并根据问题显示出来。
@@ -215,7 +216,7 @@ Form：语义化ValidateInput组件
 
 通过 `$off(eventName, eventHandler)` 停止侦听一个事件
 
-### SPA(Single Page Application)应用
+#### SPA(Single Page Application)应用
 
 [History API](https://developer.mozilla.org/zh-CN/docs/Web/API/History)接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。
 
@@ -247,7 +248,7 @@ http://localhost:8080/column/12?search=123#foo
 一对多：添加columnDetail页面
 
 
-### 状态管理工具：[Vuex](https://vuex.vuejs.org/zh/)
+#### 状态管理工具：[Vuex](https://vuex.vuejs.org/zh/)
 全局对象的弊端：
 
 - 数据不是响应式的
@@ -267,10 +268,10 @@ store包含应用中大多数状态（State）
 - 状态存储是响应式的
 - 不能直接改变store中的状态，唯一途径就是显示地提交（commit）mutation
 
-### 添加新建文章页面
+#### 添加新建文章页面
 [原型图](https://whimsical.com/Djb2TcWsLTPeapFdM3NaX)
 
-### 导航守卫|Vue Router
+#### 导航守卫|Vue Router
 ```vue
 router.beforeEach((to, from, next) => {
   if (to.name !== 'login' && !store.state.user.isLogin) {
@@ -281,9 +282,36 @@ router.beforeEach((to, from, next) => {
 })
 ```
 
-### 路由守卫-使用元信息完成权限管理
+#### 路由守卫-使用元信息完成权限管理
 [路由元信息](router.vuejs.org/zh/guide/advanced/meta.html)
 
 定义路由的时候可以配置`meta`字段
 
 ### 前后端分离开发
+
+#### RESTful API 设计理念
+HTTP 动词
+- GET ( SELECT)：从服务器取出资源（一项或多项）
+- POST (CREATE)：在服务器新建一个资源
+- PUT ( UPDATE）：在服务器更新资源
+- PATCH (UPDATE)：在服务器更新资源
+- DELETE (DELETE)：从服务器删除资源
+
+常见状态码
+
+- `200 OK` - [GET]：服务器成功返回用户请求的数据 
+- `201 CREATED` - [POST/PUT/PATCH]：用户新建或修改数据成功
+- `204 NO CONTENT` - [DELETE]：用户删除数据成功
+- `401 Unauthorized` - [*]：表示用户没有权限（令牌、用户名、密码错误）
+- `403 Forbidden` - [*]：表示用户得到授权（与401错误相对），但是访问是被禁止的
+- `404 NOT FOUND` - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作
+
+Endpoints
+
+- `GET /columns`：列出所有专栏
+- `GET /columns/:id`：列出某个专栏的信息
+- `GET /columns/:id/posts`：列出某个专栏的所有文章
+- `POST /columns/:id/posts`：在某个专栏创建文章（需要权限）
+- `GET /posts/:id`：列出某个文章的信息
+- `POST /users/login`：用户登录
+- `GET /users/current`：获取当前用户登录信息（需要权限）
