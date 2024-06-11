@@ -315,3 +315,12 @@ Endpoints
 - `GET /posts/:id`：列出某个文章的信息
 - `POST /users/login`：用户登录
 - `GET /users/current`：获取当前用户登录信息（需要权限）
+
+#### 接口文档需要注意的点
+
+- endpoints: 具体路径
+- 使用什么样的 method?
+- 发送请求的具体参数
+- 请求返回数据的格式
+
+[Swagger接口文档](http://api.vikingship.xyz/public/swagger/index.html)
