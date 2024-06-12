@@ -11,7 +11,7 @@
 
 <script lang="ts">
 /* eslint-disable */
-import { defineComponent, onMounted, onUnmounted, ref, watch } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref, Ref, watch } from 'vue'
 import useClickOutside from '../hooks/useClickOutside'
 export default defineComponent({
   name: 'Dropdown',
@@ -23,7 +23,7 @@ export default defineComponent({
   },
   setup() {
     const isOpen = ref(false)
-    const dropdownRef = ref<null | HTMLElement>(null)
+    const dropdownRef: Ref<HTMLElement | null> = ref(null);
     const toggleOpen = () => {
       isOpen.value = !isOpen.value
     }
